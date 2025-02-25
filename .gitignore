@@ -1,0 +1,30 @@
+# Composer-related
+/vendor/
+composer.lock
+
+# Development tools and logs
+.phpunit.result.cache
+/pest-coverage/
+/pest-tests/
+
+# Editor and OS files
+.idea/
+.vscode/
+*.log
+.DS_Store
+Thumbs.db
+
+# Testing and temporary files
+/tests/_output/
+/tests/_support/_generated/
+
+# Environment-specific files
+.env
+.env.local
+.env.*.local
+
+# Build artifacts (if any)
+/build/
+dist/
+public/build/
+public/dist/
