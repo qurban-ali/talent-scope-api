@@ -21,7 +21,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1' # Matches your minimum PHP version
+          php-version: '8.2' # Matches your minimum PHP version
           extensions: json # Required by ext-json in composer.json
           tools: composer:v2 # Use Composer v2 for better performance
 
