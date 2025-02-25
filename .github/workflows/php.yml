@@ -1,0 +1,42 @@
+name: PHP CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Set up PHP with required extensions
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1' # Matches your minimum PHP version
+          extensions: json # Required by ext-json in composer.json
+          tools: composer:v2 # Use Composer v2 for better performance
+
+      # Cache Composer dependencies for faster builds
+      - name: Cache Composer dependencies
+        uses: actions/cache@v3
+        with:
+          path: vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      # Install dependencies with Composer
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+
+      # Run tests with Pest
+      - name: Run Pest tests
+        run: ./vendor/bin/pest
