@@ -1,0 +1,33 @@
+{
+    "name": "qurban-ali/talent-scope-api",
+    "description": "PHP API Wrapper for the Talent Scope API",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "QurbanAli\\TalentScopeApi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Qurban Ali",
+            "email": "aliq30292@gmail.com"
+        }
+    ],
+    "minimum-stability": "alpha",
+    "require": {
+        "php": ">=8.1",
+        "guzzlehttp/guzzle": "^7.0",
+        "ext-json": "*"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "require-dev": {
+        "pestphp/pest": "^3.7",
+        "pestphp/pest-plugin-drift": "^3.0",
+        "mockery/mockery": "^1.6"
+    }
+}
