@@ -18,7 +18,7 @@ class Validator
      *
      * @param string       $key   The field name for error messaging
      * @param mixed        $value The value to validate
-     * @param ValidateType $type  The type of validation (email, password, array, url, not_empty)
+     * @param ValidateType $type  The type of validation (email, password, array, url, not_empty, file)
      *
      */
     public static function validate(string $key, mixed $value, ValidateType $type): void
@@ -54,7 +54,15 @@ class Validator
                     throw new InvalidArgumentException("Invalid {$key} URL.");
                 }
                 break;
+            case ValidateType::File:
 
+                $allowedMimes = ['pdf', 'doc', 'docx', 'txt', 'rtf', 'odt', 'html', 'png', 'jpg', 'jpeg', 'gif', 'svg', 'webp'];
+                $fileMime = mime_content_type($value);
+                $fileSize = filesize($value);
+
+                if (! is_file($value) || ! in_array($fileMime, $allowedMimes) || $fileSize > 2048 * 1024) {
+                    throw new InvalidArgumentException("{$key} must be a valid file of type " . implode(', ', $allowedMimes) . " and not exceed 2MB.");
+                }
         }
     }
 

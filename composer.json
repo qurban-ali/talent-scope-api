@@ -14,11 +14,12 @@
             "email": "aliq30292@gmail.com"
         }
     ],
-    "minimum-stability": "alpha",
+    "minimum-stability": "stable",
     "require": {
         "php": ">=8.2",
         "guzzlehttp/guzzle": "^7.0",
-        "ext-json": "*"
+        "ext-json": "*",
+        "ext-fileinfo": "*"
     },
     "config": {
         "allow-plugins": {

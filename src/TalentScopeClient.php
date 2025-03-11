@@ -17,6 +17,7 @@ class TalentScopeClient
     public ResumeBatch $resumeBatch;
     public Candidate $candidate;
     public Webhook $webhook;
+    public CVParsing $parser;
 
     public function __construct(
         string $baseUrl,
@@ -39,5 +40,6 @@ class TalentScopeClient
         $this->resumeBatch = new ResumeBatch($httpClient);
         $this->candidate = new Candidate($httpClient);
         $this->webhook = new Webhook($httpClient);
+        $this->parser = new CVParsing($httpClient);
     }
 }

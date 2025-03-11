@@ -10,4 +10,5 @@ enum ValidateType: string
     case ARRAY = 'array';
     case URL = 'url';
     case NOT_EMPTY = 'not_empty';
+    case File = 'file';
 }
