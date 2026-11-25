@@ -2,6 +2,12 @@
 
 This package provides a client for interacting with the TalentScope API, including authentication, resume batch processing, candidate management, and webhook handling.
 
+## Requirements
+
+- PHP 8.2 or newer
+- Composer
+- PHP JSON and Fileinfo extensions
+
 ## Installation
 
 You can install the package via Composer:
@@ -60,6 +66,17 @@ You can manage candidates using the `Candidate` class.
 ### Webhook Handling
 
 You can handle webhooks using the `Webhook` class.
+
+## Local development
+
+```bash
+git clone https://github.com/qurban-ali/talent-scope-api.git
+cd talent-scope-api
+composer install
+./vendor/bin/pest
+```
+
+Use mock or authorized test credentials for API integration work; never commit access or refresh tokens.
 
 ## Contributing
 
